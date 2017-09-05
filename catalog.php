@@ -15,3 +15,8 @@ $id = $_SESSION['id'];
 $myrow = QuantityOfBasket($id);
 include ("/views/catalog.php");
 ?>
+\
+\
+
+
+//sdfsdfdsfdsf
