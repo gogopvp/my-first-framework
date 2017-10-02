@@ -5,7 +5,7 @@
 </head>
 <body>
 <h2>Регистрация</h2>
-<form action="/registration.php" method="post">
+<form action="/registration/index" method="post">
     <!--**** save_user.php - это адрес обработчика.  То есть, после нажатия на кнопку "Зарегистрироваться", данные из полей  отправятся на страничку save_user.php методом "post" ***** -->
     <p>
         <label>Ваш логин:<br></label>
@@ -22,7 +22,7 @@
         <!--**** Кнопочка (type="submit") отправляет данные на страничку registration.php ***** -->
     </p></form>
 <?php
-echo $regist;
+echo $messageForUser;
 ?>
 </body>
 </html>

@@ -1,20 +1,20 @@
 <?php
 // подключаемся к базе
 // файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь
-include("/bd.inc.php");
-function CheckUser($login)
+require "/bd.inc.php";
+function checkingIfUserExists($currentUserLogin)
 {
-    global $db;
+    global $dbConnection;
     //извлекаем из базы все данные о пользователе с введенным логином
-    $result = mysqli_query($db, "SELECT * FROM users WHERE login='$login'");
-    return (mysqli_fetch_assoc($result));
+    $resultOfChecking = mysqli_query($dbConnection, "SELECT * FROM users WHERE login='$currentUserLogin'");
+    return (mysqli_fetch_assoc($resultOfChecking));
 }
-function IfRegistrated($login,$password){
-    global $db;
+function RegisterUser($loginForNewRegistration,$passwordForNewRegistration){
+    global $dbConnection;
 // если такого нет, то сохраняем данные
-    $result2 = mysqli_query ($db,"INSERT INTO users (login,password) 
+    $isUserRegistred = mysqli_query ($dbConnection,"INSERT INTO users (login,password) 
                                 VALUES    
-                                        ('".$login."',
-                                         '".$password."')");
-    return $result2;
+                                        ('".$loginForNewRegistration."',
+                                         '".$passwordForNewRegistration."')");
+    return $isUserRegistred;
 }

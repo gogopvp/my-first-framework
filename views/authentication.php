@@ -6,7 +6,7 @@
 <body>
 <h2>Главная страница</h2>
 <!--****  authentication.php - это адрес обработчика. То есть, после нажатия на кнопку  "Войти", данные из полей отправятся на страничку testreg.php методом  "post" ***** -->
-<form action="/authentication.php" method="post">
+<form action="/authentication/authentication" method="post">
 
     <!--**** В текстовое поле (name="login" type="text") пользователь вводит свой логин ***** -->
     <p>
@@ -28,24 +28,11 @@
 
         <br>
         <!--**** ссылка на регистрацию, ведь как-то же должны гости туда попадать ***** -->
-        <a href="/registration.php">Зарегистрироваться</a>
+        <a href="/registration/index">Зарегистрироваться</a>
     </p></form>
 <br>
 <?php
-// Проверяем, пусты ли переменные логина и id пользователя
-/*if (empty($_SESSION['login']) or empty($_SESSION['id']))
-{
-    // Если пусты, то мы не выводим ссылку
-    echo "Вы вошли на сайт, как гость";
-}*/
-echo($regist);
-/*else
-{
-
-    // Если не пусты, то мы выводим ссылку
-    echo "Вы вошли на сайт, как ".$_SESSION['login']."<br><a  href='http://tvpavlovsk.sk6.ru/'>Эта ссылка доступна только  зарегистрированным пользователям</a>";
-}
-*/
+echo($massageForUser);
 ?>
 </body>
 </html>

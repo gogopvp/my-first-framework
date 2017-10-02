@@ -3,15 +3,15 @@
 <head>
     <meta charset="utf-8">
     <? //отображение пользователя который сейчас залогинен
-    echo "Вы вошли на сайт как ".$login.".<br>";
+    echo "Вы вошли на сайт как ".$currentUserLogin.".<br>";
     ?>
-    <a href="session_destroy.php">Выйти</a>
+    <a href="../session_destroy.php">Выйти</a>
     <title>Каталог товаров</title>
 </head>
 <body>
-<p>Товаров в <a href="basket.php">корзине</a>
-    <?php;
-    echo product_count();
+<p>Товаров в <a href="../basket/index">корзине</a>
+    <?php
+    echo $quantityOfBasket[0];
     ?>:
 </p>
 <table border="1" cellpadding="5" cellspacing="0" width="100%">
@@ -26,7 +26,7 @@
         <th>Удалить</th>
     </tr>
     <?php
-    $goods = selectAllItems();
+
     if($goods === false){
         echo "Произошла ошибка!";
         exit;
@@ -38,14 +38,14 @@
             <td><?= $item['author']?></td>
             <td><?= $item['pubyear']?></td>
             <td><?= $item['price']?></td>
-            <td><a href="add2basket.php?id=<?= $item['id']?>">В корзину</a></td>
-            <td><a href="update_catalog.php?id=<?= $item['id']?>">Edit</a></td>
-            <td><a href="delete_from_catalog.php?id=<?= $item['id']?>">Delete</a></td>
+            <td><a href="addToBasket/?id=<?= $item['id']?>">В корзину</a></td>
+            <td><a href="aboutProduct/?id=<?= $item['id']?>">Edit</a></td>
+            <td><a href="deleteFromCatalog/?id=<?= $item['id']?>">Delete</a></td>
         </tr>
         <?
     }
     ?>
 </table>
-<p>Добавить новый товар в таблицу <a href="insert_into_catalog.php">каталог</a>.</p>
+<p>Добавить новый товар в таблицу <a href="insertForm">каталог</a>.</p>
 </body>
 </html>
