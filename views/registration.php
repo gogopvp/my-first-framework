@@ -22,7 +22,10 @@
         <!--**** Кнопочка (type="submit") отправляет данные на страничку registration.php ***** -->
     </p></form>
 <?php
-echo $messageForUser;
+if (!empty($_SESSION["error"])){
+    echo $_SESSION["error"];
+    unset($_SESSION["error"]);
+}
 ?>
 </body>
 </html>
